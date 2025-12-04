@@ -1,12 +1,16 @@
 
 import './App.css'
-import { FaGolang } from "react-icons/fa6";
+import Main from './components/Main/Main';
+import Navbar from './components/Navbar/NavBar';
+import './index.css'
 function App() {
 
   return (
     <>
-      <div className='bg-slate-800 h-screen'>  <FaGolang size={50} color='blue'/></div>
-    
+       <div className='bg-[#0A192F] h-screen flex flex-col gap-4 '>
+        <Navbar />
+        <Main/>
+       </div>
     </>
   )
 }
