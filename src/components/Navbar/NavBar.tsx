@@ -60,7 +60,8 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div 
-                    className= 'block lg:hidden h-25 text-white cursor-pointer'>
+                    className= 'lg:hidden h-25 flex items-center justify-between px-5 text-white cursor-pointer'>
+                    <Logo/>
                     <BurgerFramer/>
                 </div>
             

@@ -11,7 +11,7 @@ const BurgerFramer = () => {
     return (
         <div ref={scope} >
             <nav className="menu w-90 h-screen md:text-1xl bg-[#112240] rounded-l-lg">
-                <ul className='flex flex-col items-center gap-2'>
+                <ul className='flex flex-col items-center gap-4'>
                     {detailsNavbar.map((detail) => (
                         <>
                             {
@@ -24,9 +24,9 @@ const BurgerFramer = () => {
                                         <div className="text-[#8D99B5] font-medium text-[1.2rem]">{detail.title}</div>  
                                     </>
                                 :
-                                    <li key={detail.id}>
+                                    <div key={detail.id} className='mt-10'>
                                         <ButtonHover title={detail.title}/>
-                                    </li>
+                                    </div>
                             }
                         </>
                     ))}
