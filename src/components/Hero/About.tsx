@@ -17,7 +17,7 @@ const Skills = [{
 
 const About = () => {
   return (
-     <section className="py-12">
+     <section id='about' className="py-12">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="mx-auto max-w-5xl backdrop-blur-md rounded-2xl p-6 md:p-10 ">
             <div className="flex flex-col lg:flex-row items-center gap-8">

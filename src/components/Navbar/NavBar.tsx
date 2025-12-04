@@ -43,7 +43,10 @@ const Navbar = () => {
                     <div className="flex items-center justify-center gap-6">
                         {detailsNavbar.map((detail)=> {
                             return (
-                                <div key={detail.id}  className="m-6 mx-2 hidden lg:block text-md cursor-pointer">
+                                <a 
+                                key={detail.id}  
+                                href={`#${detail.title.toLowerCase()}`}
+                                className="m-6 mx-2 hidden lg:block text-md cursor-pointer">
                                     {detail.id !== 6 
                                     ?
                                         <>
@@ -54,7 +57,7 @@ const Navbar = () => {
                                             <ButtonHover title={detail.title}/>
                                         </>
                                     }
-                                </div>
+                                </a>
                             )
                         })}
                     </div>
