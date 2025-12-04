@@ -1,6 +1,6 @@
 import ButtonHover from '../Button/ButtonHover'
 
-const HeroIntrol = () => {
+const Introl = () => {
   return (
    <section className="flex justify-center px-4 py-12 mb-10 ">
       <div className="w-full max-w-5xl p-6 md:p-10 py-10 rounded-lg mt-10 ">
@@ -24,4 +24,4 @@ const HeroIntrol = () => {
   )
 }
 
-export default HeroIntrol
+export default Introl
