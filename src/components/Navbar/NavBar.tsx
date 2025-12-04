@@ -47,7 +47,7 @@ const Navbar = () => {
                                     {detail.id !== 6 
                                     ?
                                         <>
-                                            <span className=" text-[#58E6C9]">{detail.num}</span>
+                                            <span className=" text-[#58E6C9]">{detail.num} </span>
                                             <span className=" text-[#8D99B5] font-medium">{detail.title}</span>
                                         </>
                                     :   <>
