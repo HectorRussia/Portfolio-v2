@@ -8,7 +8,7 @@ const ButtonHover = ({title} : ButtonDetail) => {
                             `relative inline-flex items-center justify-center px-6 py-2 text-md font-semibold rounded-md
                              transition-all duration-300 select-none
                              bg-transparent text-[#58E6C9] border border-[#58E6C9]
-                             z-10
+                             z-10 cursor-pointer
 
                              /* outline element (offset) — hidden by default */
                              after:content-[''] after:absolute after:inset-0 after:rounded-md
