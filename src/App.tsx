@@ -1,14 +1,30 @@
 
+import { useEffect, useState } from 'react';
 import './App.css'
-import { FaGolang } from "react-icons/fa6";
+import PathDrawing from './components/Drawing/PathDrawing';
+import Main from './components/Main/Main';
+import Navbar from './components/Navbar/NavBar';
+
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
+
+  useEffect(() => {
+    const t = setTimeout(() => setShowSplash(false), 5000);
+    return () => clearTimeout(t);
+  }, []);
 
   return (
-    <>
-      <div className='bg-slate-800 h-screen'>  <FaGolang size={50} color='blue'/></div>
-    
-    </>
-  )
+    <div className='bg-[#0A192F]'>
+      {showSplash ? (
+        <PathDrawing />
+      ) : (
+        <>
+          <Navbar />
+          <Main />
+        </>
+      )}
+    </div>
+  );
 }
 
 export default App
