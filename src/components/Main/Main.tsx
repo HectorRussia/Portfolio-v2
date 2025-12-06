@@ -1,5 +1,6 @@
 import Introl from "../Hero/Introl";
 import About from "../Hero/About";
+import Experience from "../Hero/Experience";
 
 
 const Main = () => {
@@ -7,6 +8,8 @@ const Main = () => {
     <main>
         <Introl/>
         <About/>
+        <Experience/>
+         <Introl/>
     </main>
   )
 }
