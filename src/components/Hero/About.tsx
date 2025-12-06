@@ -1,21 +1,19 @@
 import ButtonHover from "../Button/ButtonHover"
 import profile from '../../public/profile.jpg'
+import Skills, { myStack} from "../Modal/Skills"
+import { useState } from "react";
 
-const Skills = [{
-    id:1,
-    name:"TypeScript"
-},{
-    id:2,
-    name:"Python"
-},{
-    id:3,
-    name:"Golang"
-},{
-    id:4,
-    name:"Rust"
-}];
 
 const About = () => {
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    
+    const handleOpenModal = () => {
+      setIsModalOpen(true);
+    }
+  
+    const handleCloseModal = () => {
+      setIsModalOpen(false);
+    }
   return (
      <section id='about' className="py-12">
         <div className="container mx-auto px-6 lg:px-8">
@@ -38,12 +36,12 @@ const About = () => {
                   in everyday development.
                 </p>
                 
-                <div className="mt-6 flex items-center gap-4 justify-center sm:justify-start">
+                <div className="mt-6 flex items-center gap-4 justify-center sm:justify-start"  onClick={handleOpenModal}>
                  <ButtonHover title="Check out my skill more" />
                 </div>
                 <div className="mt-6 flex flex-wrap gap-2">
-                  {Skills.map((s) => (
-                    <span key={s.id} className="inline-block text-xs bg-white/5 text-[#CCD6F6] px-3 py-1 rounded-full">{s.name}</span>
+                  {myStack.slice(0, 4).map((s) => (
+                    <span key={s.id} className="inline-block text-xs bg-white/5 text-[#CCD6F6] px-3 py-1 rounded-full">{(s as any).lang || (s as any).name || s.id}</span>
                   ))}
                 </div>
               </div>
@@ -70,7 +68,10 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
+        {/* Personality Modal */}
+        <Skills isOpen={isModalOpen} onClose={handleCloseModal} />
+    </section>
+
   )
 }
 

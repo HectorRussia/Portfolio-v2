@@ -12,38 +12,33 @@ const personalitys = [
     id: 1,
     name: 'Extroverted',
     per: '61%',
-    // gradient from teal -> cyan
     color: 'from-teal-400 to-cyan-500'
   },
   {
     id: 2,
     name: 'Intuitive',
     per: '59%',
-    // warm yellow -> amber
     color: 'from-amber-400 to-yellow-500'
   },
   {
     id: 3,
     name: 'Feeling-Oriented',
     per: '75%',
-    // green accent
     color: 'from-emerald-400 to-green-500'
   },
   {
     id: 4,
     name: 'Strategic Planner',
     per: '61%',
-    // purple
     color: 'from-violet-400 to-fuchsia-500'
   },
   {
     id: 5,
     name: 'Proactive',
     per: '61%',
-    // red -> rose
     color: 'from-rose-400 to-red-500'
   }
-]
+];
 
 const Personality = ({ isOpen, onClose, imagePath }: PersonalityModalProps) => {
   return (
