@@ -30,13 +30,14 @@ const About = () => {
                     </h1>    
                     <div className="divider w-50 md:w-70 lg:w-70"></div>
                 </div>
-              
+          
                 <p className="mt-4 text-base sm:text-lg text-[#8D99B5] leading-relaxed max-w-prose">
-  I focus on building real, developer-friendly applications that integrate LLMs 
-  in meaningful ways. I enjoy breaking down complex ideas into something clear 
-  and useful, and creating tools that help others explore and apply generative AI 
-  in everyday development.
-</p>
+                  I focus on building real, developer-friendly applications that integrate LLMs 
+                  in meaningful ways. I enjoy breaking down complex ideas into something clear 
+                  and useful, and creating tools that help others explore and apply generative AI 
+                  in everyday development.
+                </p>
+                
                 <div className="mt-6 flex items-center gap-4 justify-center sm:justify-start">
                  <ButtonHover title="Check out my skill more" />
                 </div>
