@@ -1,19 +1,31 @@
 import ButtonHover from "../Button/ButtonHover"
 import profile from '../../public/profile.jpg'
 import Skills, { myStack} from "../Modal/Skills"
-import { useState } from "react";
-
+import { useState, type KeyboardEvent } from "react";
+import personalityImage from '../../public/ENFJT.png';
+import Personality from "../Modal/Personality";
 
 const About = () => {
-    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-    
-    const handleOpenModal = () => {
-      setIsModalOpen(true);
-    }
   
-    const handleCloseModal = () => {
-      setIsModalOpen(false);
-    }
+  const [isModalSkillOpen, setIsModalSkillOpen] = useState<boolean>(false);
+  const [isModalPersonalOpen, setIsModalPersonalOpen] = useState<boolean>(false);
+  
+  const handleOpenSkillModal = () => {
+    setIsModalSkillOpen(true);
+  }
+
+  const handleCloseSkillModal = () => {
+    setIsModalSkillOpen(false);
+  }
+
+  const handleOpenPersonalModal = () => {
+    setIsModalPersonalOpen(true);
+  }
+  
+  const handleCloseModal = () => {
+    setIsModalPersonalOpen(false);
+  }
+
   return (
      <section id='about' className="py-12">
         <div className="container mx-auto px-6 lg:px-8">
@@ -36,12 +48,36 @@ const About = () => {
                   in everyday development.
                 </p>
                 
-                <div className="mt-6 flex items-center gap-4 justify-center sm:justify-start"  onClick={handleOpenModal}>
-                 <ButtonHover title="Check out my skill more" />
+                <div className="mt-6 flex flex-row items-center gap-3 justify-center sm:justify-start">
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    onClick={handleOpenSkillModal}
+                    onKeyDown={(e: KeyboardEvent<HTMLDivElement>) => { if (e.key === 'Enter' || e.key === ' ') handleOpenSkillModal(); }}
+                    className="w-1/2 sm:w-auto px-1"
+                    aria-label="Open skills modal"
+                  >
+                    <div className="w-full">
+                      <ButtonHover title="Check out my skills" />
+                    </div>
+                  </div>
+
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    onClick={handleOpenPersonalModal}
+                    onKeyDown={(e: KeyboardEvent<HTMLDivElement>) => { if (e.key === 'Enter' || e.key === ' ') handleOpenPersonalModal(); }}
+                    className="w-1/2 sm:w-auto px-1"
+                    aria-label="Open personality modal"
+                  >
+                    <div className="w-full">
+                      <ButtonHover title="Personality Profile" />
+                    </div>
+                  </div>
                 </div>
                 <div className="mt-6 flex flex-wrap gap-2">
                   {myStack.slice(0, 4).map((s) => (
-                    <span key={s.id} className="inline-block text-xs bg-white/5 text-[#CCD6F6] px-3 py-1 rounded-full">{(s as any).lang || (s as any).name || s.id}</span>
+                    <span key={s.id} className="inline-block text-xs bg-white/5 text-[#CCD6F6] px-3 py-1 rounded-full">{s.name || s.id}</span>
                   ))}
                 </div>
               </div>
@@ -68,8 +104,10 @@ const About = () => {
             </div>
           </div>
         </div>
+        {/* Skills Modal */}
+        <Skills isOpen={isModalSkillOpen} onClose={handleCloseSkillModal} />
         {/* Personality Modal */}
-        <Skills isOpen={isModalOpen} onClose={handleCloseModal} />
+        <Personality isOpen={isModalPersonalOpen} onClose={handleCloseModal} imagePath={personalityImage} />
     </section>
 
   )

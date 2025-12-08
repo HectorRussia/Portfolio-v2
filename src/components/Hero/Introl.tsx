@@ -1,18 +1,5 @@
-import { useState } from 'react'
-import ButtonHover from '../Button/ButtonHover'
 import { motion } from 'framer-motion'
-import Personality from '../Modal/Personality';
-import personalityImage from '../../public/ENFJT.png';
 const Introl = () => {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  }
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  }
 
   return (
    <section className="flex justify-center px-4 py-12 mb-10 ">
@@ -36,12 +23,7 @@ const Introl = () => {
             to turn ideas into real products. Currently, I’m working at <span className="text-[#58E6C9]">Global Wireless Co., Ltd.</span> as a Full-Stack & AI Developer, where I focus on transforming concepts into production-ready 
             systems. In my free time, I continue experimenting, learning, and creating new tools.
           </p>
-        <div className="mt-6" onClick={handleOpenModal}>
-          <ButtonHover title="Personality Profile" />
-        </div>
       </motion.div>
-        {/* Personality Modal */}
-      <Personality isOpen={isModalOpen} onClose={handleCloseModal} imagePath={personalityImage} />
     </section>
   )
 }
