@@ -1,20 +1,28 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { IoMdClose } from 'react-icons/io'
 import { BiLogoTypescript } from "react-icons/bi";
-import { FaPython } from "react-icons/fa";
+import { FaDatabase, FaDocker, FaGithub, FaPython } from "react-icons/fa";
 import { FaGolang } from "react-icons/fa6";
 import { FaRust } from "react-icons/fa";
 import { FaReact } from "react-icons/fa";
 import { FaHtml5 } from "react-icons/fa";
 import { IoLogoCss3 } from "react-icons/io5";
 import { FaNodeJs } from "react-icons/fa";
-import { SiExpress } from "react-icons/si";
+import { SiExpress, SiFastapi, SiLangchain, SiMantine, SiNestjs, SiShadcnui } from "react-icons/si";
 import { SiNextdotjs } from "react-icons/si";
+import { RiTailwindCssFill } from "react-icons/ri";
+import { IoLogoJavascript } from "react-icons/io5";
+import { FaVuejs } from "react-icons/fa";
+import { DiMysql } from 'react-icons/di';
+import { SiPrisma } from "react-icons/si";
+import { GiBrain } from 'react-icons/gi';
+import { FaGitlab } from "react-icons/fa6";
 interface SkillModalProps {
   isOpen: boolean
   onClose: () => void
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const myStack = [
   {
     id: 1,
@@ -24,65 +32,173 @@ export const myStack = [
   },
   {
     id: 2,
+    name: "JavaScript",
+    icon: <IoLogoJavascript  size={20} />,
+    color: 'from-[#F7DF1E] to-[#FFD24C]',
+  },
+  {
+    id: 3,
     name: "Python",
     icon: <FaPython size={20} />,
     // blue -> yellow
     color: 'from-blue-500 to-yellow-400',
   },
   {
-    id: 3,
+    id: 4,
     name: "Golang",
     icon: <FaGolang size={20} />,
     color: 'from-teal-400 to-cyan-500',
   },
   {
-    id: 4,
+    id: 5,
     name: "Rust",
     icon: <FaRust size={20} />,
     // warm orange tones
     color: 'from-orange-400 to-amber-500',
   },
   {
-    id: 5,
+    id: 6,
     name: "HTML5",
     icon: <FaHtml5  size={20} />,
     // HTML5 orange
     color: 'from-orange-400 to-orange-600',
   },
     {
-    id: 6,
+    id: 7,
     name: "CSS3",
     icon: <IoLogoCss3 size={20} />,
     // CSS blue
     color: 'from-blue-400 to-sky-500',
   },
 {
-    id: 7,
+    id: 8,
     name: "React",
     icon: <FaReact  size={20} />,
     // React cyan
     color: 'from-cyan-400 to-sky-500',
   },
   {
-    id: 8,
+    id: 9,
+    name: "NEXT.js",
+    icon: <SiNextdotjs  size={20} />,
+    color: 'from-neutral-600 to-neutral-800',
+  },
+  {
+    id: 10,
+    name: "VUE.js",
+    icon: <FaVuejs  size={20} />,
+    color: 'from-[#42B883] to-[#2C9F6B]',
+  },
+  {
+    id: 11,
+    name: "Tailwind",
+    icon: <RiTailwindCssFill size={20} />,
+    color: 'from-teal-400 to-cyan-400',
+  },
+  {
+    id: 12,
+    name: "Mantine",
+    icon: <SiMantine size={20} />,
+    color: 'from-[#00B37E] to-[#4ADE80]',
+  },
+  {
+    id: 13,
+    name: "Shadcnui",
+    icon: <SiShadcnui size={20} />,
+    color: 'from-[#7C3AED] to-[#A78BFA]',
+  },
+  {
+    id: 14,
     name: "Node.js",
     icon: <FaNodeJs  size={20} />,
     // Node green
     color: 'from-green-400 to-green-600',
   },
   {
-    id: 9,
+    id: 15,
     name: "Express.js",
     icon: <SiExpress  size={20} />,
     // Express neutral
     color: 'from-neutral-600 to-neutral-800',
   },
-   {
-    id: 10,
-    name: "NEXT.js",
-    icon: <SiNextdotjs  size={20} />,
-    color: 'from-neutral-600 to-neutral-800',
+  {
+    id: 16,
+    name: "Nest.js",
+    icon: <SiNestjs   size={20} />,
+    // Express neutral
+    // NestJS brand red
+    color: 'from-[#E0234E] to-[#FF6B6B]',
   },
+  {
+    id: 17,
+    name: "FastAPI",
+    icon: <SiFastapi  size={20} />,
+    // FastAPI teal-ish
+    color: 'from-[#009688] to-[#00E5C4]',
+  },
+  {
+    id: 18,
+    name: "MySQL",
+    icon: <DiMysql  size={20} />,
+    // MySQL blue
+    color: 'from-[#00758F] to-[#00A0D2]',
+  },
+  {
+    id: 19,
+    name: "Prisma",
+    icon: <SiPrisma  size={20} />,
+    // Prisma cyan -> violet (brand-like)
+    color: 'from-[#00B4D8] to-[#7C3AED]',
+  },
+  {
+    id: 20,
+    name: "ChromaDB",
+    icon: <FaDatabase  size={20} />,
+    // Chroma-style: emphasize orange to avoid clashing with Python
+    color: 'from-[#FF6A4D] to-[#FFD166]',
+  },
+  {
+    id: 21,
+    name: "QdrantDB",
+    icon: <FaDatabase  size={20} />,
+    // Qdrant red/pink (logo-like)
+    color: 'from-[#E11D48] to-[#FF6B8A]',
+  },
+  {
+    id: 22,
+    name: "LangChain",
+    icon: <SiLangchain   size={20} />,
+    // LangChain blue gradient (brand-like)
+    color: 'from-[#0B5E4A] to-[#58E6C9]',
+  },
+  {
+    id: 23,
+    name: "LangGraph",
+    icon: <GiBrain  size={20} />,
+    // LangGraph pink gradient (requested)
+    color: 'from-[#FF4D8D] to-[#FF9CCF]',
+  },
+  {
+    id: 24,
+    name: "Docker",
+    icon: <FaDocker  size={20} />,
+    // Docker blue
+    color: 'from-[#2496ED] to-[#0DB7ED]',
+  },
+  {
+    id: 25,
+    name: "GitLab",
+    icon: <FaGitlab   size={20} />,
+    // GitLab orange
+    color: 'from-[#FC6D26] to-[#FF9A3C]',
+  },
+  {
+    id: 26,
+    name: "GitHub",
+    icon: <FaGithub    size={20} />,
+    // GitHub dark
+    color: 'from-[#0D1117] to-[#24292F]',
+  }
 ];
 
 const Skills = ({isOpen, onClose}: SkillModalProps) => {

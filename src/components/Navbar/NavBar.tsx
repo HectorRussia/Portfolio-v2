@@ -51,9 +51,9 @@ const Navbar = () => {
                         }}
                     >
                         {detailsNavbar.map((detail)=> {
-                            const itemVariants: any = {
+                            const itemVariants = {
                                 hidden: { y: -20, opacity: 0 },
-                                visible: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 500, damping: 30 } }
+                                visible: { y: 0, opacity: 1, transition: { type: 'spring' as const, stiffness: 500, damping: 30 } }
                             }
                             return (
                                 <motion.a
