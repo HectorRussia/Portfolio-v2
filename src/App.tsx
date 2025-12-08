@@ -1,18 +1,30 @@
 
+import { useEffect, useState } from 'react';
 import './App.css'
+import PathDrawing from './components/Drawing/PathDrawing';
 import Main from './components/Main/Main';
 import Navbar from './components/Navbar/NavBar';
-import './index.css'
+
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
+
+  useEffect(() => {
+    const t = setTimeout(() => setShowSplash(false), 5000);
+    return () => clearTimeout(t);
+  }, []);
 
   return (
-    <>
-       <div className='bg-[#0A192F] h-screen flex flex-col gap-4 '>
-        <Navbar />
-        <Main/>
-       </div>
-    </>
-  )
+    <div className='bg-[#0A192F]'>
+      {showSplash ? (
+        <PathDrawing />
+      ) : (
+        <>
+          <Navbar />
+          <Main />
+        </>
+      )}
+    </div>
+  );
 }
 
 export default App

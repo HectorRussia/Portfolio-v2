@@ -15,6 +15,7 @@ const Logo = () => {
         fill="none"
         strokeLinejoin="round"
       />
+      <a href="/">
       <text
         x="50%"
         y="52%"
@@ -27,6 +28,7 @@ const Logo = () => {
       >
         H
       </text>
+      </a>
     </svg>
   )
 }
