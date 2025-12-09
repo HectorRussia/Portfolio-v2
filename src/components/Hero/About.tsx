@@ -1,30 +1,38 @@
 import ButtonHover from "../Button/ButtonHover"
 import profile from '../../public/profile.jpg'
-import Skills, { myStack} from "../Modal/Skills"
+import Skills from "../Modal/Skills"
 import { useState, type KeyboardEvent } from "react";
 import personalityImage from '../../public/ENFJT.png';
 import Personality from "../Modal/Personality";
+import { IoMdArrowDropright } from "react-icons/io";
+const technical = [{
+  id:1,
+  name: "Full-stack development",
+},
+{
+  id:2,
+  name: "AI-powered features & LLM integration"
+},
+{
+  id:3,
+  name: "RAG (Retrieval-Augmented Generation)"
+},
+{
+  id:4,
+  name: "Backend architecture & database design"
+},
+{
+  id:5,
+  name: "Modern UI development"
+}]
 
 const About = () => {
   
-  const [isModalSkillOpen, setIsModalSkillOpen] = useState<boolean>(false);
-  const [isModalPersonalOpen, setIsModalPersonalOpen] = useState<boolean>(false);
-  
-  const handleOpenSkillModal = () => {
-    setIsModalSkillOpen(true);
-  }
+  const [openModal, setOpenModal] = useState<'skills' | 'personality' | null>(null);
 
-  const handleCloseSkillModal = () => {
-    setIsModalSkillOpen(false);
-  }
-
-  const handleOpenPersonalModal = () => {
-    setIsModalPersonalOpen(true);
-  }
-  
-  const handleCloseModal = () => {
-    setIsModalPersonalOpen(false);
-  }
+  const openSkills = () => setOpenModal('skills');
+  const openPersonality = () => setOpenModal('personality');
+  const closeModal = () => setOpenModal(null);
 
   return (
      <section id='about' className="py-12">
@@ -52,8 +60,8 @@ const About = () => {
                   <div
                     role="button"
                     tabIndex={0}
-                    onClick={handleOpenSkillModal}
-                    onKeyDown={(e: KeyboardEvent<HTMLDivElement>) => { if (e.key === 'Enter' || e.key === ' ') handleOpenSkillModal(); }}
+                    onClick={openSkills}
+                    onKeyDown={(e: KeyboardEvent<HTMLDivElement>) => { if (e.key === 'Enter' || e.key === ' ') openSkills(); }}
                     className="w-1/2 sm:w-auto px-1"
                     aria-label="Open skills modal"
                   >
@@ -65,8 +73,8 @@ const About = () => {
                   <div
                     role="button"
                     tabIndex={0}
-                    onClick={handleOpenPersonalModal}
-                    onKeyDown={(e: KeyboardEvent<HTMLDivElement>) => { if (e.key === 'Enter' || e.key === ' ') handleOpenPersonalModal(); }}
+                    onClick={openPersonality}
+                    onKeyDown={(e: KeyboardEvent<HTMLDivElement>) => { if (e.key === 'Enter' || e.key === ' ') openPersonality(); }}
                     className="w-1/2 sm:w-auto px-1"
                     aria-label="Open personality modal"
                   >
@@ -75,10 +83,27 @@ const About = () => {
                     </div>
                   </div>
                 </div>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {myStack.slice(0, 4).map((s) => (
-                    <span key={s.id} className="inline-block text-xs bg-white/5 text-[#CCD6F6] px-3 py-1 rounded-full">{s.name || s.id}</span>
-                  ))}
+                <div className="mt-6">
+                  <p className="mb-4 text-sm text-[#9fb0c8]">Here are a few technologies I've been working with recently:</p>
+
+                  <ul className="grid grid-cols-2 ">
+                     {technical.map((t) => (
+                      <li key={t.id} className="text-[#CCD6F6]">
+                        <div className=" text-[#58E6C9]">
+                          <IoMdArrowDropright />
+                        </div>
+                        <div className="text-[#9fb0c8]">{t.name}</div>
+                      </li>
+                    ))}
+                   {/*  {technical.slice(0, 7).map((t) => (
+                      <li key={t.id} className="flex items-start text-sm text-[#CCD6F6]">
+                        <span className="mt-1 inline-flex items-center justify-center w-4 h-4 text-[#58E6C9]">
+                          <IoMdArrowDropright />
+                        </span>
+                        <span className="text-[#9fb0c8] ml-2">{t.name}</span>
+                      </li>
+                    ))} */}
+                  </ul>
                 </div>
               </div>
 
@@ -105,9 +130,9 @@ const About = () => {
           </div>
         </div>
         {/* Skills Modal */}
-        <Skills isOpen={isModalSkillOpen} onClose={handleCloseSkillModal} />
+        <Skills isOpen={openModal === 'skills'} onClose={closeModal} />
         {/* Personality Modal */}
-        <Personality isOpen={isModalPersonalOpen} onClose={handleCloseModal} imagePath={personalityImage} />
+        <Personality isOpen={openModal === 'personality'} onClose={closeModal} imagePath={personalityImage} />
     </section>
 
   )
