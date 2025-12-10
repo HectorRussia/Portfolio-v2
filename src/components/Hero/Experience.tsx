@@ -19,12 +19,12 @@ const experiences = [
     id: 'EPT',
     company: 'Expert Programing tutor',
     title: 'Bootcamp Online',
-    when: 'Jan 2023 — Apr 2025',
+    when: 'November 2021 — Apr 2024',
     bullets: [
-      'Learing JAVA Python PHP',
-      'Learning JavaScript, TypeScript, React, Node.js, and other web technologies',
-      'Learning advanced web development concepts',
-      'Designing Database Schemas and Data Models',
+      'Completed hands-on training in Java, Python, and PHP through structured bootcamp coursework.',
+      'Built full-stack applications using JavaScript, TypeScript, React, and Node.js.',
+      'Studied advanced development principles including API design, testing, and deployment workflows.',
+      'Designed relational database schemas and data models for multiple practice projects.',
     ],
   },
   {
@@ -93,14 +93,14 @@ const Experience: React.FC = () => {
                   <h3 className="text-xl sm:text-xl font-semibold text-[#CCD6F6] ">
                     {current.title} <span className="text-[#58E6C9] font-medium">@ {current.company}</span>
                   </h3>
-                  <div className="text-sm text-slate-400 mt-2">{current.when}</div>
+                  <div className="text-sm text-[#8892B0] mt-2">{current.when}</div>
                 </div>
 
                 <ul className="mt-6 space-y-3 list-none">
                   {current.bullets.map((b, i) => (
-                    <li key={i} className="flex gap-3 text-slate-300">
+                    <li key={i} className="flex gap-3 ">
                       <span className="text-[#58E6C9] mt-1">▸</span>
-                      <span className="leading-relaxed">{b}</span>
+                      <span className="leading-[23.4px] text-[#8892B0] text-[16px]"> {b}</span>
                     </li>
                   ))}
                 </ul>
