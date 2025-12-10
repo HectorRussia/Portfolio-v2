@@ -85,25 +85,16 @@ const About = () => {
                 </div>
                 <div className="mt-6">
                   <p className="mb-4 text-sm text-[#9fb0c8]">Here are a few technologies I've been working with recently:</p>
-
-                  <ul className="grid grid-cols-2 ">
-                     {technical.map((t) => (
-                      <li key={t.id} className="text-[#CCD6F6]">
-                        <div className=" text-[#58E6C9]">
-                          <IoMdArrowDropright />
-                        </div>
-                        <div className="text-[#9fb0c8]">{t.name}</div>
-                      </li>
-                    ))}
-                   {/*  {technical.slice(0, 7).map((t) => (
-                      <li key={t.id} className="flex items-start text-sm text-[#CCD6F6]">
+                  <div className="grid grid-cols-2 gap-4">
+                    {technical.slice(0, 7).map((t) => (
+                      <div key={t.id} className="flex items-start text-sm text-[#CCD6F6]">
                         <span className="mt-1 inline-flex items-center justify-center w-4 h-4 text-[#58E6C9]">
                           <IoMdArrowDropright />
                         </span>
                         <span className="text-[#9fb0c8] ml-2">{t.name}</span>
-                      </li>
-                    ))} */}
-                  </ul>
+                      </div>
+                    ))}
+                </div>
                 </div>
               </div>
 
