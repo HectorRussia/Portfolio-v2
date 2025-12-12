@@ -19,12 +19,12 @@ export const detailsNavbar = [
 {
     id: 3,
     num : "03.",
-    title: "Learning",
+    title: "Project",
 },
 {
     id: 4,
     num : "04.",
-    title: "Project",
+    title: "Learning",
 },
 {
     id: 5, 
