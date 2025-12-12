@@ -1,6 +1,8 @@
 import Introl from "../Hero/Introl";
 import About from "../Hero/About";
 import Experience from "../Hero/Experience";
+import Learning from "../Hero/Learning";
+import ProjectSection from "../Hero/Project";
 
 
 const Main = () => {
@@ -9,7 +11,8 @@ const Main = () => {
         <Introl/>
         <About/>
         <Experience/>
-         <Introl/>
+        <ProjectSection/>
+        <Learning/>
     </main>
   )
 }
