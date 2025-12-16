@@ -39,7 +39,7 @@ const projects: Project[] = [
 
 const FeaturedCard: React.FC<{ project: Project; reverse?: boolean }> = ({ project, reverse }) => {
   return (
-    <div id="Project" className={`group flex flex-col ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-8`}> 
+    <div id="project" className={`group flex flex-col ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-8`}> 
       <div className="relative w-full lg:w-1/2">
         <a
           href="#"
