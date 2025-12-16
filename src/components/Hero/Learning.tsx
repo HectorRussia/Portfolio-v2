@@ -43,7 +43,7 @@ const Learning = () => {
         <div className="mx-auto max-w-5xl backdrop-blur-md rounded-2xl p-6 md:p-10">
           {/* Header */}
           <div className="flex items-center gap-5 w-full mb-8">
-            <h1 className="text-xl text-[#58E6C9] font-semibold">03.</h1>
+            <h1 className="text-xl text-[#58E6C9] font-semibold">04.</h1>
             <h1 className="text-2xl sm:text-3xl lg:text-3xl font-bold text-[#CCD6F6]">
               Learning & Certifications
             </h1>
