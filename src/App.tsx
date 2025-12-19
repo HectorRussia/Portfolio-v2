@@ -4,6 +4,7 @@ import './App.css'
 import PathDrawing from './components/Drawing/PathDrawing';
 import Main from './components/Main/Main';
 import Navbar from './components/Navbar/NavBar';
+import SideBars from './components/Sidebar/SideBar';
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -21,6 +22,7 @@ function App() {
         <>
           <Navbar />
           <Main />
+          <SideBars/>
         </>
       )}
     </div>
