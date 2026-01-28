@@ -18,11 +18,11 @@ export default function SideBars() {
       <div className="hidden md:flex fixed left-8 bottom-0 flex-col items-center gap-6 z-20" aria-hidden>
         <div className="flex flex-col items-center gap-6">
           <a href="https://github.com/" target="_blank" rel="noreferrer"
-             className="text-slate-300 hover:text-teal-400 transition-colors">
+            className="text-slate-300 hover:text-teal-400 transition-colors">
             <GitHubSVG />
           </a>
           <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer"
-             className="text-slate-300 hover:text-teal-400 transition-colors">
+            className="text-slate-300 hover:text-teal-400 transition-colors">
             <LinkedInSVG />
           </a>
         </div>
@@ -31,8 +31,8 @@ export default function SideBars() {
 
       {/* right fixed vertical email + line (hidden on small screens) */}
       <div className="hidden md:flex fixed right-8 bottom-0 flex-col items-center gap-6 z-20" aria-hidden>
-        <div className="text-slate-400 text-xs tracking-widest">
-          <a href="mailto:hailey@haileyq.com" className="inline-block transform -rotate-90 origin-bottom-left hover:text-teal-400 transition-colors">
+        <div className="text-slate-400 text-xs tracking-widest" style={{ writingMode: 'vertical-rl' }}>
+          <a href="mailto:Ponkrit.wo@hotmail.com" className="inline-block transform rotate-180 hover:text-teal-400 transition-colors">
             Ponkrit.wo@hotmail.com
           </a>
         </div>
