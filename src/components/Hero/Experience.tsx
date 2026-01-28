@@ -7,12 +7,13 @@ const experiences = [
     id: 'GW',
     company: 'GLOBAL WRIELESS co.ltd.',
     title: 'Fullstack Developer',
-    when: 'June 2024 — present',
+    when: 'June 2024 — Jan 2025',
     bullets: [
-      'Developing and maintaining web applications using modern frameworks and technologies',
-      'Development and maintaining Production-ready LLM-integrated features and applications',
-      'Collaborating with engineering teams to ensure accurate and up-to-date technical information',
-      'Contributing to the development of educational materials and resources for AI technologies',
+      'National-scale Platforms: Maintained and enhanced major platforms including LearningOBEC, TestBank, and Chinese HSK Examination systems, supporting students and teachers nationwide.',
+      'AI Feature Integration: Deployed production-ready LLM features such as Prolead-RAG and automated AI assessment tools for language exams.',
+      'Core Development: Developed and maintained web applications using Node.js (Express), TypeScript, and React, ensuring high-quality and scalable codebases.',
+      'Industrial & Public Solutions: Developed OpenMine (Real-time stone weight monitoring for mining operations), PrakasaOne (QR-based safety system), and the official website for the Thaikaomai Party.',
+      'System Migration: Engineered data migration tools using Go (Golang) to support efficient architectural transitions between platform environments.',
     ],
   },
   {
@@ -58,8 +59,8 @@ const Experience: React.FC = () => {
 
   return (
     <section id="experience" className="py-12 mt-15">
-      <div className="container mx-auto px-6 lg:px-8 lg:w-1/2">
-        <motion.div className="mx-auto max-w-3xl" variants={containerVariants} initial="visible">
+      <div className="container mx-auto px-6 lg:px-8">
+        <motion.div className="mx-auto max-w-5xl" variants={containerVariants} initial="visible">
           <motion.div className="flex items-center gap-6 mb-6" variants={itemVariants}>
             <span className="text-xl text-[#58E6C9] font-semibold">02.</span>
             <h2 className="text-2xl md:text-3xl font-bold text-[#CCD6F6]">Where I’ve Worked</h2>
@@ -76,9 +77,8 @@ const Experience: React.FC = () => {
                     <button
                       key={exp.id}
                       onClick={() => setActive(idx)}
-                      className={`text-left flex items-center gap-3 py-2 pr-4 rounded-r-md transition-colors duration-200 cursor-pointer ${
-                        idx === active ? 'text-[#58E6C9] font-medium' : 'text-slate-400'
-                      }`}
+                      className={`text-left flex items-center gap-3 py-2 pr-4 rounded-r-md transition-colors duration-200 cursor-pointer ${idx === active ? 'text-[#58E6C9] font-medium' : 'text-slate-400'
+                        }`}
                     >
                       <span className={`h-6 w-0.5 rounded ${idx === active ? 'bg-[#58E6C9]' : 'bg-transparent'}`} />
                       <span className="text-sm tracking-wider">{exp.company}</span>
