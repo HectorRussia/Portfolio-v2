@@ -11,35 +11,33 @@ type Project = {
 
 const projects: Project[] = [
   {
-    id: 'docchat',
-    title: 'DocChat',
-    description:
-      'DocChat is an AI-powered Multi-Agent RAG system using Docling for structured document parsing and BM25 + vector search retrievers to return fact-checked answers from PDFs, DOCX and text files.',
-    tags: ['LangGraph', 'Docling', 'BM25', 'Vector Search', 'Multi-Agent Systems'],
-    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    featured: true,
+    "id": "rag-prolead",
+    "title": "RAG ProLead: AI Executive Examination System",
+    "description": "An advanced AI-driven evaluation platform for executive exams. The system utilizes Retrieval-Augmented Generation (RAG) to embed and retrieve authoritative content from PDF documents, enabling automated and precise grading of candidate responses against specific institutional rubrics.",
+    "tags": ["Python", "TypeScript", "LangChain", "FastAPI", "React", "Qdrant", "Azure-OpenAI"],
+    "image": "projects/rag.png",
+    "featured": true
   },
   {
-    id: 'galactic',
-    title: 'Galactic Healer',
-    description:
-      'An AI-based educational game to increase awareness about rare diseases and symptoms — built with React, Supabase and a FastAPI backend.',
-    tags: ['ReactJS', 'JavaScript', 'Supabase', 'FastAPI'],
-    image: 'https://images.unsplash.com/photo-1507878866276-a947ef722fee?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=8d0b9e1e1e8b6c3a5f0c1a7d6e6b9a2c',
-    featured: true,
+    "id": "X-Social",
+    "title": "X-Social News Intelligence",
+    "description": "An AI-powered news monitoring platform that aggregates and categorizes real-time data from X (Twitter). Built with a high-performance FastAPI backend and LangChain for automated summarization, featuring a robust React dashboard with persistent authentication (JWT/Refresh Token) and flexible UI layouts.",
+    "tags": ["Python", "TypeScript", "FastAPI", "React", "LangChain", "PostgreSQL", "TailwindCSS"],
+    "image": "projects/x-social.png",
+    "featured": true
   },
-  {
-    id: 'tooling',
-    title: 'Builder Toolkit',
-    description: 'Small utility library to scaffold and deploy microservices quickly.',
-    tags: ['TypeScript', 'Node', 'CLI'],
-    image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=2f8f6e4e9a2b8c4d6f1a9b8e7c3f5d2e',
-  },
+  /*  {
+     id: 'tooling',
+     title: 'Builder Toolkit',
+     description: 'Small utility library to scaffold and deploy microservices quickly.',
+     tags: ['TypeScript', 'Node', 'CLI'],
+     image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=2f8f6e4e9a2b8c4d6f1a9b8e7c3f5d2e',
+   }, */
 ]
 
 const FeaturedCard: React.FC<{ project: Project; reverse?: boolean }> = ({ project, reverse }) => {
   return (
-    <div id="project" className={`group flex flex-col ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-8`}> 
+    <div id="project" className={`group flex flex-col ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-8`}>
       <div className="relative w-full lg:w-1/2">
         <a
           href="#"
@@ -83,14 +81,14 @@ const FeaturedCard: React.FC<{ project: Project; reverse?: boolean }> = ({ proje
             ))}
           </div>
 
-          <div className="mt-6 flex items-center gap-4">
+          {/*  <div className="mt-6 flex items-center gap-4">
             <a href="#" className="text-[#58E6C9] inline-flex items-center gap-2">
               View repo
             </a>
             <a href="#" className="text-[#9fb0c8] inline-flex items-center gap-2">
               Live demo
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
@@ -117,7 +115,7 @@ const ProjectSection: React.FC = () => {
           </div>
 
           {/* smaller project grid */}
-          <div className="mt-12">
+          {/*  <div className="mt-12">
             <h3 className="text-lg text-[#CCD6F6] font-semibold mb-6">Other Projects</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {projects
@@ -137,7 +135,7 @@ const ProjectSection: React.FC = () => {
                   </article>
                 ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
