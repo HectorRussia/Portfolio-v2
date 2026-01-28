@@ -14,7 +14,7 @@ const projects: Project[] = [
     "id": "rag-prolead",
     "title": "RAG ProLead: AI Executive Examination System",
     "description": "An advanced AI-driven evaluation platform for executive exams. The system utilizes Retrieval-Augmented Generation (RAG) to embed and retrieve authoritative content from PDF documents, enabling automated and precise grading of candidate responses against specific institutional rubrics.",
-    "tags": ["Python", "TypeScript", "LangChain", "FastAPI", "React", "Qdrant", "Azure-OpenAI"],
+    "tags": ["Python", "TypeScript", "LangChain", "FastAPI", "React", "TailwindCSS", "Qdrant", "Azure-OpenAI"],
     "image": "projects/rag.png",
     "featured": true
   },

@@ -17,11 +17,11 @@ export default function SideBars() {
       {/* left fixed icons + line (hidden on small screens) */}
       <div className="hidden md:flex fixed left-8 bottom-0 flex-col items-center gap-6 z-20" aria-hidden>
         <div className="flex flex-col items-center gap-6">
-          <a href="https://github.com/" target="_blank" rel="noreferrer"
+          <a href="https://github.com/HectorRussia?tab=repositories" target="_blank" rel="noreferrer"
             className="text-slate-300 hover:text-teal-400 transition-colors">
             <GitHubSVG />
           </a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer"
+          <a href="https://www.linkedin.com/in/ponkrit-woralamee-b9a448297" target="_blank" rel="noreferrer"
             className="text-slate-300 hover:text-teal-400 transition-colors">
             <LinkedInSVG />
           </a>
