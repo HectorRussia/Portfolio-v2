@@ -27,6 +27,7 @@ const technical = [{
 const About = () => {
 
   const [openModal, setOpenModal] = useState<'skills' | 'personality' | null>(null);
+  const [isClicked, setIsClicked] = useState(false);
 
   const openSkills = () => setOpenModal('skills');
   const openPersonality = () => setOpenModal('personality');
@@ -98,20 +99,23 @@ const About = () => {
 
             {/* Image column */}
             <div className="w-full lg:w-1/2 flex justify-center">
-              <div className="relative group">
+              <div
+                className="relative group cursor-pointer"
+                onClick={() => setIsClicked(!isClicked)}
+              >
                 {/* Decorative offset frame placed behind and offset to bottom-right */}
                 {/* Decorative frame sized to the image container (inset-0) and offset slightly down-right. */}
-                <div className="absolute inset-0 rounded-2xl border-2 border-[#58E6C9] bg-transparent transform translate-x-3 translate-y-3 transition-transform duration-300 group-hover:translate-x-6 group-hover:translate-y-6 pointer-events-none" aria-hidden="true" />
+                <div className={`absolute inset-0 rounded-2xl border-2 border-[#58E6C9] bg-transparent transform translate-x-3 translate-y-3 transition-transform duration-300 group-hover:translate-x-6 group-hover:translate-y-6 pointer-events-none ${isClicked ? 'translate-x-6 translate-y-6' : ''}`} aria-hidden="true" />
 
                 {/* Image with heavy teal overlay that fades on hover */}
                 <div className="relative z-10 overflow-hidden rounded-md">
                   <img
                     src={"profile.jpg"}
                     alt="Portrait of Ponkrit Woramalee"
-                    className="w-48 sm:w-56 md:w-64 lg:w-72 h-48 sm:h-56 md:h-64 lg:h-72 object-cover transition-transform duration-500 group-hover:scale-105"
+                    className={`w-48 sm:w-56 md:w-64 lg:w-72 h-48 sm:h-56 md:h-64 lg:h-72 object-cover transition-transform duration-500 group-hover:scale-105 ${isClicked ? 'scale-105' : ''}`}
                   />
 
-                  <div className="absolute inset-0 bg-[#64ffda]/60 transition-opacity duration-500 group-hover:opacity-0" />
+                  <div className={`absolute inset-0 bg-[#64ffda]/60 transition-opacity duration-500 group-hover:opacity-0 ${isClicked ? 'opacity-0' : ''}`} />
                 </div>
               </div>
             </div>

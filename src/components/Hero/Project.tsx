@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 type Project = {
   id: string
@@ -36,22 +36,26 @@ const projects: Project[] = [
 ]
 
 const FeaturedCard: React.FC<{ project: Project; reverse?: boolean }> = ({ project, reverse }) => {
+  const [isClicked, setIsClicked] = useState(false);
+
   return (
     <div id="project" className={`group flex flex-col ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-8`}>
       <div className="relative w-full lg:w-1/2">
         <a
           href="#"
-          className="block relative overflow-hidden rounded-lg shadow-lg"
+          className="block relative overflow-hidden rounded-lg shadow-lg cursor-pointer"
           aria-label={`Open ${project.title}`}
+          onClick={(e) => { e.preventDefault(); setIsClicked(!isClicked); }}
         >
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-auto object-cover filter grayscale contrast-90 transition-all duration-500 transform group-hover:grayscale-0 group-hover:scale-105"
+            className={`w-full h-auto object-cover filter grayscale contrast-90 transition-all duration-500 transform group-hover:grayscale-0 group-hover:scale-105 ${isClicked ? 'grayscale-0 scale-105' : ''}`}
           />
 
           {/* colored overlay that fades on hover */}
-          <div className="absolute inset-0 bg-[#64ffda]/14 backdrop-blur-sm transition-opacity duration-500 group-hover:opacity-0" />
+          {/* colored overlay that fades on hover */}
+          <div className={`absolute inset-0 bg-[#64ffda]/14 backdrop-blur-sm transition-opacity duration-500 group-hover:opacity-0 ${isClicked ? 'opacity-0' : ''}`} />
         </a>
 
         {/* description card that sits over the image on large screens */}
