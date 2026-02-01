@@ -2,6 +2,7 @@ import ButtonHover from "../Button/ButtonHover"
 import Skills from "../Modal/Skills"
 import { useState, type KeyboardEvent } from "react";
 import Personality from "../Modal/Personality";
+import WorkPressure from "../Modal/WorkPressure";
 import { IoMdArrowDropright } from "react-icons/io";
 const technical = [{
   id: 1,
@@ -26,11 +27,12 @@ const technical = [{
 
 const About = () => {
 
-  const [openModal, setOpenModal] = useState<'skills' | 'personality' | null>(null);
+  const [openModal, setOpenModal] = useState<'skills' | 'personality' | 'workPressure' | null>(null);
   const [isClicked, setIsClicked] = useState(false);
 
   const openSkills = () => setOpenModal('skills');
   const openPersonality = () => setOpenModal('personality');
+  const openWorkPressure = () => setOpenModal('workPressure');
   const closeModal = () => setOpenModal(null);
 
   return (
@@ -55,16 +57,16 @@ const About = () => {
                 in everyday development.
               </p>
 
-              <div className="mt-6 flex flex-row items-center gap-3 justify-center sm:justify-start">
+              <div className="mt-6 grid grid-cols-2 sm:flex sm:flex-row items-center gap-3 justify-center sm:justify-start">
                 <div
                   role="button"
                   tabIndex={0}
                   onClick={openSkills}
                   onKeyDown={(e: KeyboardEvent<HTMLDivElement>) => { if (e.key === 'Enter' || e.key === ' ') openSkills(); }}
-                  className="w-1/2 sm:w-auto px-1"
+                  className="col-span-1 sm:w-auto px-1"
                   aria-label="Open skills modal"
                 >
-                  <div className="w-full">
+                  <div className="w-full flex justify-center">
                     <ButtonHover title="Check out my skills" />
                   </div>
                 </div>
@@ -74,11 +76,24 @@ const About = () => {
                   tabIndex={0}
                   onClick={openPersonality}
                   onKeyDown={(e: KeyboardEvent<HTMLDivElement>) => { if (e.key === 'Enter' || e.key === ' ') openPersonality(); }}
-                  className="w-1/2 sm:w-auto px-1"
+                  className="col-span-1 sm:w-auto px-1"
                   aria-label="Open personality modal"
                 >
-                  <div className="w-full">
+                  <div className="w-full flex justify-center">
                     <ButtonHover title="Personality Profile" />
+                  </div>
+                </div>
+
+                <div
+                  role="button"
+                  tabIndex={0}
+                  onClick={openWorkPressure}
+                  onKeyDown={(e: KeyboardEvent<HTMLDivElement>) => { if (e.key === 'Enter' || e.key === ' ') openWorkPressure(); }}
+                  className="col-span-2 sm:w-auto px-1"
+                  aria-label="Open Work Pressure modal"
+                >
+                  <div className="w-full flex justify-center">
+                    <ButtonHover title="Work Under Pressure" />
                   </div>
                 </div>
               </div>
@@ -126,6 +141,9 @@ const About = () => {
       <Skills isOpen={openModal === 'skills'} onClose={closeModal} />
       {/* Personality Modal */}
       <Personality isOpen={openModal === 'personality'} onClose={closeModal} imagePath={"ENFJT.png"} />
+      {/* Works Under Pressure Modal */}
+      <WorkPressure isOpen={openModal === 'workPressure'} onClose={closeModal} imagePath={"work-pressure.jpg"} />
+      {/* can under work pressure */}
     </section>
 
   )
