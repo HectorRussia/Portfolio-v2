@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ImageGalleryModal from '../Modal/ImageGalleryModal'
 
 type Project = {
   id: string
@@ -6,6 +7,7 @@ type Project = {
   description: string
   tags: string[]
   image: string
+  gallery?: string[]
   featured?: boolean
 }
 
@@ -15,7 +17,13 @@ const projects: Project[] = [
     "title": "RAG ProLead: AI Executive Examination System",
     "description": "An advanced AI-driven evaluation platform for executive exams. The system utilizes Retrieval-Augmented Generation (RAG) to embed and retrieve authoritative content from PDF documents, enabling automated and precise grading of candidate responses against specific institutional rubrics.",
     "tags": ["Python", "TypeScript", "LangChain", "FastAPI", "React", "TailwindCSS", "Qdrant", "Azure-OpenAI"],
-    "image": "projects/rag.png",
+    "image": "projects/rags/rag.png",
+    "gallery": [
+      "projects/rags/rag.png",
+      "projects/rags/rag1.png",
+      "projects/rags/rag2.png",
+      "projects/rags/rag3.png"
+    ],
     "featured": true
   },
   {
@@ -23,7 +31,13 @@ const projects: Project[] = [
     "title": "X-Social News Intelligence",
     "description": "An AI-powered news monitoring platform that aggregates and categorizes real-time data from X (Twitter). Built with a high-performance FastAPI backend and LangChain for automated summarization, featuring a robust React dashboard with persistent authentication (JWT/Refresh Token) and flexible UI layouts.",
     "tags": ["Python", "TypeScript", "FastAPI", "React", "LangChain", "PostgreSQL", "TailwindCSS"],
-    "image": "projects/x-social.png",
+    "image": "projects/x-social/x-social.png",
+    "gallery": [
+      "projects/x-social/x-social.png",
+      "projects/x-social/x-1.png",
+      "projects/x-social/x-2.png",
+      "projects/x-social/x-3.png"
+    ],
     "featured": true
   },
   /*  {
@@ -36,7 +50,14 @@ const projects: Project[] = [
 ]
 
 const FeaturedCard: React.FC<{ project: Project; reverse?: boolean }> = ({ project, reverse }) => {
-  const [isClicked, setIsClicked] = useState(false);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false)
+
+  const handleImageClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    if (project.gallery && project.gallery.length > 0) {
+      setIsGalleryOpen(true)
+    }
+  }
 
   return (
     <div id="project" className={`group flex flex-col ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-8`}>
@@ -44,18 +65,17 @@ const FeaturedCard: React.FC<{ project: Project; reverse?: boolean }> = ({ proje
         <a
           href="#"
           className="block relative overflow-hidden rounded-lg shadow-lg cursor-pointer"
-          aria-label={`Open ${project.title}`}
-          onClick={(e) => { e.preventDefault(); setIsClicked(!isClicked); }}
+          aria-label={`Open ${project.title} Gallery`}
+          onClick={handleImageClick}
         >
           <img
             src={project.image}
             alt={project.title}
-            className={`w-full h-auto object-cover filter grayscale contrast-90 transition-all duration-500 transform group-hover:grayscale-0 group-hover:scale-105 ${isClicked ? 'grayscale-0 scale-105' : ''}`}
+            className={`w-full h-auto object-cover filter grayscale contrast-90 transition-all duration-500 transform group-hover:grayscale-0 group-hover:scale-105`}
           />
 
           {/* colored overlay that fades on hover */}
-          {/* colored overlay that fades on hover */}
-          <div className={`absolute inset-0 bg-[#64ffda]/14 backdrop-blur-sm transition-opacity duration-500 group-hover:opacity-0 ${isClicked ? 'opacity-0' : ''}`} />
+          <div className="absolute inset-0 bg-[#64ffda]/14 backdrop-blur-sm transition-opacity duration-500 group-hover:opacity-0" />
         </a>
 
         {/* description card that sits over the image on large screens */}
@@ -95,6 +115,14 @@ const FeaturedCard: React.FC<{ project: Project; reverse?: boolean }> = ({ proje
           </div> */}
         </div>
       </div>
+
+      {project.gallery && (
+        <ImageGalleryModal
+          isOpen={isGalleryOpen}
+          onClose={() => setIsGalleryOpen(false)}
+          images={project.gallery}
+        />
+      )}
     </div>
   )
 }
