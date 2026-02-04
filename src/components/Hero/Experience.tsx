@@ -7,7 +7,7 @@ const experiences = [
     id: 'GW',
     company: 'GLOBAL WRIELESS co.ltd.',
     title: 'Fullstack Developer',
-    when: 'June 2024 — Jan 2025',
+    when: 'June 2024 — Jan 2026',
     bullets: [
       'National-scale Platforms: Maintained and enhanced major platforms including LearningOBEC, TestBank, and Chinese HSK Examination systems, supporting students and teachers nationwide.',
       'AI Feature Integration: Deployed production-ready LLM features such as Prolead-RAG and automated AI assessment tools for language exams.',
